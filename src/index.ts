@@ -38,7 +38,7 @@ $freeBtn.click(() => {
 })
 $visitBtn.click(() => {
     const id = parseInt($idInput.val())
-    if (id >= totalInstructions || id < 0) {
+    if (id >= totalInstructions || id < 0 || (id !== 0 && !id )) {
         alert('错误的指令编号')
         return
     }

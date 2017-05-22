@@ -54,6 +54,7 @@ export default class Job {
     public visitInstruction(id: number): number {
         const page = this.space[Math.floor(id / 10)]
         this.totalTime += 1
+        this.el.updateTotalTime(this.totalTime)
         for (let i = 0; i < this.blocks.length; ++i) {
             const block = this.blocks[i]
             const address = block.getAddress(id)

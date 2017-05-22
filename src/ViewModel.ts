@@ -4,17 +4,21 @@
 
 import * as $ from 'jquery'
 
-const messagePool = $('#message-pool')
+const $messagePool = $('#message-pool')
+const $currentMessage = $('#currentMessage')
 
 function addMessageToPool(msg: string) {
     const $message = $('<li>').addClass('message')
     $message.text(msg)
-    messagePool.prepend($message)
+    $currentMessage.text(msg)
+    $messagePool.prepend($message)
 }
 
 export class JobElement {
     private lackTime: JQuery
+    private totalTime: JQuery
     constructor() {
+        this.totalTime = $('#totaltime')
         this.lackTime = $('#lacktime')
     }
     public addMessage(id?, address?, blockId?) {
@@ -29,6 +33,9 @@ export class JobElement {
     }
     public updateLackTime(time: number) {
         this.lackTime.text(time)
+    }
+    public updateTotalTime(time: number) {
+        this.totalTime.text(time)
     }
 }
 
