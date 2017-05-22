@@ -6,7 +6,6 @@ import MemoryBlock from './MemoryBlock'
 import Job, {PageLimit} from './Job'
 import {JobElement, BlockElement} from './ViewModel'
 import * as $ from 'jquery'
-import {last} from "rxjs/operator/last";
 
 // Constant declare
 const MemoryBlockUpperLimit = 4

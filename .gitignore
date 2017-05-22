@@ -411,3 +411,4 @@ __pycache__/
 
 .gitignore
 src/*.js
+dist/
