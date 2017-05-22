@@ -31,11 +31,11 @@ module.exports = {
             template: 'src/index.html',
             filename: 'index.html'
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     }
+        // }),
         new CopyWebpackPlugin([{
             from: path.join(__dirname, 'src/static'),
             to: 'static'

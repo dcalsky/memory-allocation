@@ -12,19 +12,23 @@ class Instruction {
 }
 
 export default class Page {
-    instructions: Array<Instruction> = []
+    public id: number
+    public instructions: Array<Instruction> = []
+
     constructor(offset: number) {
+        this.id = offset
         for (let i = 0; i < InstructionLimit; ++i) {
             this.instructions.push(new Instruction(offset * InstructionLimit + i))
         }
     }
     public getInstructionOrder(id: number): number {
         for (let i = 0; i < this.instructions.length; ++i) {
-            const instruct = this.instructions[id]
+            const instruct = this.instructions[i]
             if (instruct.id === id) {
                 return i
             }
         }
+        return -1
     }
 
 }

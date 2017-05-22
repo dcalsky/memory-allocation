@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+        <input type="number" id="instruct" min="0" max="319" placeholder="指令编号(0-319)">
+        <p>缺页次数: <span id="lacktime">0</span></p>
+        <button id="visit">执行指令</button>
+        <button id="free">释放所有内存块</button>
+        <ul id="message-pool">
+
+        </ul>
+        <div class="block-box">
+            <div data-block="0" class="block">
+                <h2 class="page">None</h2>
+            </div>
+            <div data-block="1" class="block">
+                <h2 class="page">None</h2>
+            </div>
+            <div data-block="2" class="block">
+                <h2 class="page">None</h2>
+            </div>
+            <div data-block="3" class="block">
+                <h2 class="page">None</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

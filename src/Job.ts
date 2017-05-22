@@ -4,57 +4,67 @@
 
 import Page from './Page'
 import MemoryBlock from './MemoryBlock'
+import {JobElement} from './ViewModel'
 
-const PageLimit = 32
+export const PageLimit = 32
 
 export default class Job {
-    private space: Array<Page>
+    private space: Array<Page> = []
     private blocks: Array<MemoryBlock>
     public lackPageTime: number = 0
     public totalTime = 0
-    constructor(blocks: Array<MemoryBlock>) {
+    private el: JobElement
+
+    constructor(blocks: Array<MemoryBlock>, el: JobElement) {
         this.blocks = blocks
+        this.el = el
         for (let i = 0; i < PageLimit; ++i) {
             this.space.push(new Page(i))
         }
     }
-    private storePage(page: Page) {
-        let block: MemoryBlock
+
+    private storePage(id: number, page: Page) {
+        let blockId: number
         for (let i = 0; i < this.blocks.length; ++i) {
             if (this.blocks[i].free) {
-                block = this.blocks[i]
+                blockId = i
                 break
             }
         }
-        if (!block) {
-            block = this.getNRUMemory()
+        if (!blockId) {
+            blockId = this.getNRUMemory()
         }
-        block.replacePage(page)
+        this.el.addMessage(id, null, blockId)
+        this.blocks[blockId].replacePage(page)
     }
-    private getNRUMemory(): MemoryBlock {
+
+    private getNRUMemory(): number {
         let farthestDate = this.blocks[0].lastUpdate,
-            NRUMemory = this.blocks[0]
+            NRUMemoryId = 0
         for (let i = 1; i < this.blocks.length; ++i) {
             const block = this.blocks[i]
-            if (block.lastUpdate > farthestDate) {
+            if (block.lastUpdate < farthestDate) {
                 farthestDate = block.lastUpdate
-                NRUMemory = block
+                NRUMemoryId = i
             }
         }
-        return NRUMemory
+        return NRUMemoryId
     }
-    public visitInstrction(id: number): number {
-        const page = this.space[id / 10]
+
+    public visitInstruction(id: number): number {
+        const page = this.space[Math.floor(id / 10)]
         this.totalTime += 1
         for (let i = 0; i < this.blocks.length; ++i) {
             const block = this.blocks[i]
             const address = block.getAddress(id)
             if (address !== -1) {
+                this.el.addMessage(id, address)
                 return address
             }
         }
         // Lack page exception
         this.lackPageTime += 1
-        this.storePage(page)
+        this.storePage(id, page)
+        this.el.updateLackTime(this.lackPageTime)
     }
 }
