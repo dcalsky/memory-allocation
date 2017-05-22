@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#EF9A9A">
+    <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Memory allocation</title>
     <link rel="stylesheet" href="./static/main.css">
@@ -12,30 +15,31 @@
         <h1 class="title">Memory allocation</h1>
         <h2 class="desc">Programmed by Typescript for operation system course</h2>
         <div class="input">
-            <input type="number" id="instruct" min="0" max="319" placeholder="指令编号(0-319)">
+            <input type="number" id="instruct" min="0" max="319" placeholder="Instruction Number(0-319)">
             <button id="visit">+</button>
         </div>
-        <p class="time">指令执行次数: <span id="totaltime">0</span>缺页次数: <span id="lacktime">0</span></p>
-        <p class="time">当前消息: <span id="currentMessage"></span></p>
-        <button id="auto">自动执行指令</button>
-        <button id="free">释放所有内存块</button>
+        <p class="time">Total: <span id="totaltime">0</span>Missing Page: <span id="lacktime">0</span></p>
+        <p class="time">Current message: <span id="currentMessage"></span></p>
+        <button id="auto">Automatically</button>
+        <button id="free">Free memeory</button>
     </div>
     <div class="block-box">
-        <div data-block="0" class="block"><span>内存块0</span>
-            <h2>页表: <span class="page">None</span></h2>
+        <h3>Monitoring unit of memory blocks</h3>
+        <div data-block="0" class="block"><span>Memory block 0</span>
+            <h2>Store Page: <br><span class="page">None</span></h2>
         </div>
-        <div data-block="1" class="block"><span>内存块1</span>
-            <h2>页表: <span class="page">None</span></h2>
+        <div data-block="1" class="block"><span>Memory block 1</span>
+            <h2>Store Page: <br><span class="page">None</span></h2>
         </div>
-        <div data-block="2" class="block"><span>内存块2</span>
-            <h2>页表: <span class="page">None</span></h2>
+        <div data-block="2" class="block"><span>Memory block 2</span>
+            <h2>Store Page: <br><span class="page">None</span></h2>
         </div>
-        <div data-block="3" class="block"><span>内存块3</span>
-            <h2>页表: <span class="page">None</span></h2>
+        <div data-block="3" class="block"><span>Memory block 3</span>
+            <h2>Store Page: <br><span class="page">None</span></h2>
         </div>
     </div>
     <div class="history-message">
-        <h3>历史消息</h3>
+        <h3>History Message</h3>
         <ul id="message-pool"></ul>
     </div>
 

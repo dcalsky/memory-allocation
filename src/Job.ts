@@ -21,6 +21,8 @@ export default class Job {
         for (let i = 0; i < PageLimit; ++i) {
             this.space.push(new Page(i))
         }
+        this.el.updateTotalTime(this.totalTime)
+        this.el.updateLackTime(this.lackPageTime)
     }
 
     private storePage(id: number, page: Page) {

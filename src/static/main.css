@@ -113,6 +113,11 @@ ul {
     color: white;
 }
 
+#auto.active {
+    background: #4CAF50;
+    color: white;
+}
+
 .time {
     color: #333;
     font-size: .75rem;
@@ -124,6 +129,7 @@ ul {
 
 .block-box {
     position: relative;
+    text-align: center;
     width: 600px;
     margin: 0 auto;
     padding-top: 20px;
@@ -140,10 +146,11 @@ ul {
     float: left;
     width: 300px;
     height: 300px;
-    transition: all .5s;
+    transition: all .3s;
     color: white;
     font-size: 1rem;
     font-weight: 500;
+    padding: 30px;
 }
 
 .block .page {
@@ -168,14 +175,13 @@ ul {
 }
 
 .history-message {
-    padding: 0 10px;
+    text-align: center;
 }
 
 #message-pool {
     margin: 20px auto 0 auto;
     padding: 30px;
-    text-align: center;
-    max-width: 290px;
+    max-width: 600px;
     height: 300px;
     overflow-y: scroll;
     background: white;
@@ -185,9 +191,10 @@ ul {
 
 #message-pool .message {
     font-size: .85rem;
+    margin-top: 5px;
 }
 
-@media screen and (max-width: 978px) {
+@media screen and (max-width: 768px) {
     .container {
         padding: 0;
         width: 100%;
@@ -198,5 +205,8 @@ ul {
     .block-box .block {
         width: 50%;
         height: 50vw;
+    }
+    #message-pool {
+        max-width: calc(100vw - 30px)
     }
 }
