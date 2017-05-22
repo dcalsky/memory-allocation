@@ -64,7 +64,7 @@ $auto.click(() => {
             const lackTime = parseInt($('#lacktime').text())
             clearInterval(timer)
             autoLock = false
-            $auto.remove('active')
+            $auto.removeClass('active')
             alert(`Rate of missing page: ${ lackTime / time }`)
             return
         }
