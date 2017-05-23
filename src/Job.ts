@@ -12,7 +12,7 @@ export default class Job {
     private space: Array<Page> = []
     private blocks: Array<MemoryBlock>
     public lackPageTime: number = 0
-    public totalTime = 0
+    public totalTime: number = 0
     private el: JobElement
 
     constructor(blocks: Array<MemoryBlock>, el: JobElement) {

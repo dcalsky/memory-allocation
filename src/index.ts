@@ -28,7 +28,7 @@ for (let i = 0; i < totalInstructions; ++i) {
     instructions.push(i)
 }
 
-// React UI event
+// UI event
 const $visitBtn = $('#visit')
 const $freeBtn = $('#free')
 const $idInput = $('#instruct')

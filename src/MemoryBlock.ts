@@ -9,7 +9,7 @@ export default class MemoryBlock {
     public free: boolean = true
     public page: Page
     public initialAddress: number
-    public lastUpdate
+    public lastUpdate: Date
     private el: BlockElement
 
     constructor(n: number, el: BlockElement) {
